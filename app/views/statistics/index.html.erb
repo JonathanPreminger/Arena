@@ -1,0 +1,9 @@
+<h1 class="text-3xl font-bold underline">
+  Hello Arenametrix!
+</h1>
+<p>Nombre total d'utilisateurs : <%= @users_total %></p>
+<p>Nombre total de réservations : <%= @reservations_total %></p>
+<p>Âge moyen des utilisateurs: <%= User.average_age %></p>
+<p>Prix moyen  : <%= Reservation.average_price %> €</p>
+<p>Lien vers l'upload : </p>
+<p><%= link_to "upload", reservations_path %></p>
