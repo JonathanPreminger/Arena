@@ -1,15 +1,15 @@
 class ReservationsController < ActionController::Base
-	require 'csv'
-	
-	def index
-	end
+  require 'csv'
 
-	def import
-		file = params[:file]
-		return redirect_to reservations_path unless file.content_type == "text/csv"
+  def index
+  end
 
-		ImportReservationsService.new.call(file)
+  def import
+    file = params[:file]
+    return redirect_to reservations_path unless file.content_type == "text/csv"
 
-		redirect_to reservations_path
-	end
+    ImportReservationsService.new.call(file)
+
+    redirect_to reservations_path
+  end
 end

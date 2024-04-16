@@ -6,6 +6,6 @@ class User < ApplicationRecord
   scope :with_age, -> { where.not(age: nil) }
 
   def self.average_age
-		User.with_age.sum(:age) / (User.with_age.count.nonzero? || 1) 
+    User.with_age.sum(:age) / (User.with_age.count.nonzero? || 1) 
   end
 end
