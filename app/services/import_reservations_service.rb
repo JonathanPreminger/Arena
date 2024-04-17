@@ -27,7 +27,6 @@ class ImportReservationsService
       representation_hash[:end_date] = row["Date fin representation"]
       representation_hash[:start_time] = row["Heure representation"]
       representation_hash[:end_time] = row["Heure fin represnetation"]
-      representation_hash[:price] = row["Prix"]
 
       reservation_hash = {}
       reservation_hash[:number] = row["Reservation"]
@@ -38,6 +37,7 @@ class ImportReservationsService
 
       ticket_hash = {}
       ticket_hash[:number] = row["Numero billet"]
+      ticket_hash[:price] = row["Prix"]
 
       user = User.create(user_hash)
       show = Show.create(show_hash)

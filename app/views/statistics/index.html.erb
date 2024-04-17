@@ -1,9 +1,46 @@
-<h1 class="text-3xl font-bold underline">
-  Hello Arenametrix!
-</h1>
-<p>Nombre total d'utilisateurs : <%= @users_total %></p>
-<p>Nombre total de réservations : <%= @reservations_total %></p>
-<p>Âge moyen des utilisateurs: <%= User.average_age %></p>
-<p>Prix moyen  : <%= Reservation.average_price %> €</p>
-<p>Lien vers l'upload : </p>
-<p><%= link_to "Upload", reservations_path %></p>
+<script src="https://cdn.tailwindcss.com"></script>
+<div class="flex flex-row">
+  <div>
+    <h1 class="text-3xl font-bold underline">
+      Hello Arenametrix!
+    </h1>
+  </div>
+
+  <div class="border-2 border-slate-800 mb-8 ml-8">
+    <p>Lien vers l'upload : </p>
+    <p><%= link_to "Upload", reservations_path %></p>
+  </div>
+</div>
+
+<div class="border-2 border-slate-800 mb-8">
+  <h2>Données globales</h2>
+  <p>Nombre total de réservations : <%= @reservations_total %></p>
+  <p>Nombre total d'acheteurs uniques : <%= @users_total %></p>
+  <p>Âge moyen des utilisateurs: <%= User.average_age %> ans</p>
+</div>
+
+<div class="border-2 border-slate-800 mb-8">
+  <%= form_tag stats_per_show_path, method: :get, multipart: true do %>
+    <%= label_tag "Spectacles", "Choisissez un spectacle" %>
+    <%= select_tag "show", options_for_select(Show.all.map(&:name)) %>
+    <%= submit_tag "Choisir" %>
+  <% end %>
+
+  <% if @selected_show != nil %>
+    <h2>Données pour le spectacle choisi</h2>
+    <h3>Spectacle  : <%= @selected_show %></h3>
+    <p>Nombre total de réservations : <%= @reservations_total_for_selected_show %></p>
+    <p>Nombre total d'acheteurs uniques : <%= @users_total_for_selected_show %></p>
+    <p>Âge moyen des utilisateurs: <%= @average_age_for_selected_show %> ans</p>
+    <p>Prix moyen pour ce spectacle : <%= @average_price_for_selected_show %> €</p>
+  <% end %>
+</div>
+
+<div class="h-full max-h-80 border-2 border-slate-800 overflow-scroll">
+  <p>Prix moyen par représentation: </p>
+  <% Representation.find_each do |repre| %>
+    <p class="text-xs"><%= repre.key %> - <%= repre.name.upcase %> - <%= repre.average_price %> €</p>
+  <% end %>
+<div>
+
+

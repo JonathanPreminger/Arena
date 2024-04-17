@@ -7,7 +7,6 @@ class CreateRepresentations < ActiveRecord::Migration[7.0]
       t.datetime :end_date
       t.datetime :start_time
       t.datetime :end_time
-      t.float :price
       t.integer :show_id
 
       t.timestamps

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "statistics#index"
+  get '/stats_per_show', to: 'statistics#stats_per_show'
   
   resources :reservations do 
     collection do

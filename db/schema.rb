@@ -18,7 +18,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_16_203223) do
     t.datetime "end_date"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.float "price"
     t.integer "show_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -45,6 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_16_203223) do
 
   create_table "tickets", force: :cascade do |t|
     t.string "number"
+    t.float "price"
     t.integer "reservation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
