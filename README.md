@@ -19,7 +19,7 @@ Le recours au scope a permis d'éviter la répétition de code.
 
 Pour une meilleure performance sur le rendu de la page statistiques on a utilisé l'appel par batch (find_each) de 1000 (valeur par default) sur l'affichage des Representation et de leur prix moyen. Pour tendre vers une performance encore meilleure, l'utilisation d'`includes` aurait permis de faire de grandes économies de requête.
 
-Les fonctionalités de base de l'exercice ont été réalisés et une fonctionalité optionnel à été rajouté, à savoir la possibilité d'avoir des datas sur un spectacle précis. 
+Les fonctionalités de base de l'exercice ont été réalisées et une fonctionalité optionnelle à été rajoutée, à savoir la possibilité d'avoir des datas sur un spectacle précis. 
 À ce sujet la logique de calcul des différentes données aurait pu être extraite vers un service dédié. 
 
 L'ajout de la fonctionalité `dependent: :destroy` entre les parents et enfants a été écarté, on veut parfois conserver la data même si un utilisateur se désinscrit (à ce moment on peut l'archiver par exemple, ainsi que ses réservations).
